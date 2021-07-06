@@ -10,4 +10,10 @@
 .logo_container{
     width: 86%;
     
+    text-align: center;
+    
+}
+.logo_container img{
+    width: 19%;
+	height: 32px;
 }
