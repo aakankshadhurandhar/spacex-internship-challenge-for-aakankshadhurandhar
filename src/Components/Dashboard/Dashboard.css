@@ -1,13 +1,16 @@
-.filter_section{
-    width: max-content;
-    margin-top: 48px;
-    float: right;
-    width: 141px;
-    height: 16px;
-    margin-right: 243px;
+.dashboard_container{
+    flex-direction: column;
+    justify-content: center;
 }
-.filter{
+.filter_section{
+    width: 100%;
+    margin-top: 48px;
+    margin-left: 1100px;
    
-    font-style: normal;
-    color: black;
+}
+.table_container{
+    margin-top: 48px;
+    margin-left: 300px;
+    width: 1000px;
+    height: 676px;
 }
