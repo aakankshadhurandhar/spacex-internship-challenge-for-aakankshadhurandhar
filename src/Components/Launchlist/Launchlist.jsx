@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table}  from "semantic-ui-react"
-export const LaunchList=()=>{
+export const LaunchList=({getmodaldetails})=>{
 
 
 return (
@@ -20,7 +20,7 @@ return (
 					</Table.Row>
                     </Table.Header>
                     <Table.Body>
-							<Table.Row>
+							<Table.Row  onClick={() => getmodaldetails("flight no 4")} >
 								<Table.Cell>Cell</Table.Cell>
 								<Table.Cell>Cell</Table.Cell>
 								<Table.Cell>Cell</Table.Cell>
