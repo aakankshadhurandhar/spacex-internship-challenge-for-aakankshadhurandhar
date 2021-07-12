@@ -33,5 +33,25 @@ const Statuslabel=(launch_success)=>{
         )
 }
 
+const GenerateSearchterm=({status,setSearchTerm})=>{
+    
+    if (status === true) {
+		
+        return setSearchTerm(`?launch_success=true`)
+	} else if (status === false) {
 
-export {FormattedDate,Statuslabel};
+		return setSearchTerm(`?launch_success=false`);
+
+	} 
+    else if(status==="Upcoming Launches"){
+        return setSearchTerm("/upcoming")
+    }
+    else
+    return setSearchTerm("")
+    
+    
+    
+}
+
+
+export {FormattedDate,Statuslabel,GenerateSearchterm};

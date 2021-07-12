@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import { GenerateSearchterm } from '../../utils';
 
 import { Filterbystatus } from '../Filterbystatus';
 import { LaunchList } from '../Launchlist';
@@ -7,8 +8,11 @@ import './Dashboard.css'
 
 function Dashboard() {
 const[launches,setlaunches]=useState([])
+const[searchTerm,setSearchTerm]=useState("")
+const[status,setstatus]=useState("")
+
 const Getlaunchdetails = async () => {
-    const temp = await fetch(`https://api.spacexdata.com/v3/launches`)
+    const temp = await fetch(`https://api.spacexdata.com/v3/launches${searchTerm}`)
         .then(res => res.json());
 
         console.log(temp);
@@ -16,7 +20,12 @@ const Getlaunchdetails = async () => {
 }
 useEffect(() => {
     Getlaunchdetails();
-}, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [searchTerm]);
+
+useEffect(() => {
+   GenerateSearchterm({status,setSearchTerm})
+}, [status])
     return (
 
         <>
@@ -25,7 +34,7 @@ useEffect(() => {
 
 
                 <div className="filter_section">
-                    <Filterbystatus />
+                    <Filterbystatus setstatus={setstatus}/>
                 </div>
                 <div className="table_container">
                     <LaunchList launches={launches}/>
