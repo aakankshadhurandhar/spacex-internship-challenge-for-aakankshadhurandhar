@@ -1,7 +1,10 @@
-import React,{useState} from 'react';
-import {Table}  from "semantic-ui-react"
+import React, { useState } from 'react';
+import { Table } from "semantic-ui-react"
 import Model from '../Model/Model';
-export const LaunchList=({getmodaldetails})=>{
+import {FormattedDate,Statuslabel} from '../../utils/index'
+import './Launchlist.css'
+export const LaunchList = ({ launches }) => {
+	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
 	const [launchDetails, setLaunchDetails] = useState({});
 	const handleClose = () => setModalIsOpen(false);
@@ -11,11 +14,11 @@ export const LaunchList=({getmodaldetails})=>{
 		setLaunchDetails(launch);
 	};
 
-return (
+	return (
 
-    <div>
+		<div>
 
-{ModalIsOpen ? (
+			{ModalIsOpen ? (
 				<Model
 					modalStatus={ModalIsOpen}
 					handleClose={handleClose}
@@ -23,55 +26,44 @@ return (
 				/>
 			) : (
 
-			
-            <Table singleLine>
-                    <Table.Header>
-                    <Table.Row>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						<Table.HeaderCell>Header</Table.HeaderCell>
-						
-						
-					</Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-							<Table.Row   onClick={() => handleEvents("Flight")} >
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								
-							</Table.Row>
-							<Table.Row>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								
-							</Table.Row>
-							<Table.Row>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								<Table.Cell>Cell</Table.Cell>
-								
-							</Table.Row>
-						</Table.Body>
-           </Table>
+
+				<Table singleLine>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell>No:</Table.HeaderCell>
+							<Table.HeaderCell>Launched(UTC)</Table.HeaderCell>
+							<Table.HeaderCell>Location</Table.HeaderCell>
+							<Table.HeaderCell>Mission</Table.HeaderCell>
+							<Table.HeaderCell>Orbit</Table.HeaderCell>
+							<Table.HeaderCell>Launch Status</Table.HeaderCell>
+							<Table.HeaderCell>Rocket</Table.HeaderCell>
+
+
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+						{launches.map((launch) => {
+							return (
+								<Table.Row onClick={() => handleEvents("Flight")} >
+									<Table.Cell>{launch.flight_number}</Table.Cell>
+									<Table.Cell>{FormattedDate(launch.launch_date_utc)}</Table.Cell>
+									<Table.Cell>{launch.launch_site.site_name}</Table.Cell>
+									<Table.Cell>{launch.mission_name}</Table.Cell>
+									<Table.Cell>{
+										launch.rocket.second_stage.payloads[0].orbit}</Table.Cell>
+									<Table.Cell>{ Statuslabel(  launch.launch_success)}
+									</Table.Cell>
+									<Table.Cell>{launch.rocket.rocket_name}</Table.Cell>
+
+								</Table.Row>
+							)
+						})
+
+						}
+
+					</Table.Body>
+				</Table>
 			)}
-    </div>
-)
+		</div>
+	)
 }

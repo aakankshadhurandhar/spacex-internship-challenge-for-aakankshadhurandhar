@@ -1,6 +1,6 @@
 import React from 'react';
 import {Dropdown}  from "semantic-ui-react"
-export const Filterbystatus=()=>{
+export const Filterbystatus=({setstatus})=>{
     const status=[
         {
             key:"All Launches",
@@ -15,23 +15,28 @@ export const Filterbystatus=()=>{
         {
             key:"Successful Launches",
             text:"Successful Launches",
-            value: "Successful Launches",
+            value: true,
         },
         {
             key:"Failed Launches",
             text:"Failed Launches",
-            value: "Failed Launches",
+            value: false,
         },
         
     ]
-
+    const handleChange = (e, { value }) => {
+        console.log(value)
+		setstatus(value);
+	};
 return (
     <div>
             <Dropdown 
             className="filter"
             selection
+            defaultValue="All Launches"
             options={status}
-            placeholder="All launches"/>
+            placeholder="All launches"
+            onChange={handleChange}/>
     </div>
 )
 }
