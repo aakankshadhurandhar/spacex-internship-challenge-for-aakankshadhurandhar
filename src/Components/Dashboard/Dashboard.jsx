@@ -3,6 +3,9 @@ import { GenerateSearchterm } from '../../utils';
 
 import { Filterbystatus } from '../Filterbystatus';
 import { LaunchList } from '../Launchlist';
+import Paginations from '../Pagination/Paginations';
+
+
 
 import './Dashboard.css'
 
@@ -38,7 +41,11 @@ useEffect(() => {
                 </div>
                 <div className="table_container">
                     <LaunchList launches={launches}/>
+                    <div className="pagination-container">
+               <Paginations />
                 </div>
+                </div>
+                
 
             </div>
 

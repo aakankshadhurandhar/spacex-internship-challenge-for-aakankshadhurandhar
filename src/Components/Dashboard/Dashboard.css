@@ -14,3 +14,7 @@
     width: 1000px;
     height: 676px;
 }
+.pagination-container {
+	margin: 1rem auto !important;
+    float: right;
+}
