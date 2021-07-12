@@ -1,10 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Table}  from "semantic-ui-react"
-export const LaunchList=()=>{
-
+import Model from '../Model/Model';
+export const LaunchList=({getmodaldetails})=>{
+	const [ModalIsOpen, setModalIsOpen] = useState(false);
+	const [launchDetails, setLaunchDetails] = useState({});
+	const handleClose = () => setModalIsOpen(false);
+	// const handleShow = () => setModalIsOpen(true);
+	const handleEvents = (launch) => {
+		setModalIsOpen(true);
+		setLaunchDetails(launch);
+	};
 
 return (
+
     <div>
+
+{ModalIsOpen ? (
+				<Model
+					modalStatus={ModalIsOpen}
+					handleClose={handleClose}
+					launchDetails={launchDetails}
+				/>
+			) : (
+
+			
             <Table singleLine>
                     <Table.Header>
                     <Table.Row>
@@ -20,7 +39,7 @@ return (
 					</Table.Row>
                     </Table.Header>
                     <Table.Body>
-							<Table.Row>
+							<Table.Row   onClick={() => handleEvents("Flight")} >
 								<Table.Cell>Cell</Table.Cell>
 								<Table.Cell>Cell</Table.Cell>
 								<Table.Cell>Cell</Table.Cell>
@@ -52,6 +71,7 @@ return (
 							</Table.Row>
 						</Table.Body>
            </Table>
+			)}
     </div>
 )
 }
