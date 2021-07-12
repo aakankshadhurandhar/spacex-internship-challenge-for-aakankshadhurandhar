@@ -28,7 +28,7 @@ useEffect(() => {
                     <Filterbystatus />
                 </div>
                 <div className="table_container">
-                    <LaunchList />
+                    <LaunchList launches={launches}/>
                 </div>
 
             </div>
