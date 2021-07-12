@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Table } from "semantic-ui-react"
 import Model from '../Model/Model';
 import {FormattedDate,Statuslabel} from '../../utils/index'
+import './Launchlist.css'
 export const LaunchList = ({ launches }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);

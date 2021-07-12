@@ -1,0 +1,31 @@
+
+
+tbody tr {
+	cursor: pointer;
+
+	transition: transform 0.4s !important;
+
+}
+
+
+tbody tr  :hover {
+		transform: scale(1.03) !important;
+		
+		box-shadow: 0 4px 13px -3px rgba(0, 0, 0, 0.10196);
+	
+}
+
+th {
+	
+	letter-spacing: 0.1rem;
+	font-weight: 500 !important;
+    padding-right: 30px;;
+}
+td {
+	letter-spacing: 0.6px;
+	font-size: 1rem !important;
+	padding-left: 44px;
+    padding-right: 26px;
+
+	
+}
