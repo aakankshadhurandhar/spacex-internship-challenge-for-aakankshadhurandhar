@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Table } from "semantic-ui-react"
 import Model from '../Model/Model';
-import {FormattedDate} from '../../utils/index'
+import {FormattedDate,Statuslabel} from '../../utils/index'
 export const LaunchList = ({ launches }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
@@ -50,9 +50,7 @@ export const LaunchList = ({ launches }) => {
 									<Table.Cell>{launch.mission_name}</Table.Cell>
 									<Table.Cell>{
 										launch.rocket.second_stage.payloads[0].orbit}</Table.Cell>
-									<Table.Cell>{launch.launch_success
-										? "true"
-										: "false"}
+									<Table.Cell>{ Statuslabel(  launch.launch_success)}
 									</Table.Cell>
 									<Table.Cell>{launch.rocket.rocket_name}</Table.Cell>
 
