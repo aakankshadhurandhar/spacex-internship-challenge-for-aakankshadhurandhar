@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table } from "semantic-ui-react"
 import Model from '../Model/Model';
+import {FormattedDate} from '../../utils/index'
 export const LaunchList = ({ launches }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
@@ -44,7 +45,7 @@ export const LaunchList = ({ launches }) => {
 							return (
 								<Table.Row onClick={() => handleEvents("Flight")} >
 									<Table.Cell>{launch.flight_number}</Table.Cell>
-									<Table.Cell>{launch.launch_date_utc}</Table.Cell>
+									<Table.Cell>{FormattedDate(launch.launch_date_utc)}</Table.Cell>
 									<Table.Cell>{launch.launch_site.site_name}</Table.Cell>
 									<Table.Cell>{launch.mission_name}</Table.Cell>
 									<Table.Cell>{
