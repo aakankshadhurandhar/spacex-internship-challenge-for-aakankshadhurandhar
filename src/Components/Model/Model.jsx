@@ -12,12 +12,7 @@ function Model({ modalStatus, handleClose, launchDetails }) {
 					left: 0,
 					right: 0,
 					bottom: 0,
-<<<<<<< HEAD
-					backgroundColor: "rgba(210,212,215,0.6)",
-=======
-					backgroundColor: "transparent",
->>>>>>> d7be4a0761570f99184675105ee73292fdf87171
-					zIndex: 1000,
+
 				},
 				content: {
 					position: "absolute",
@@ -29,13 +24,14 @@ function Model({ modalStatus, handleClose, launchDetails }) {
 					WebkitOverflowScrolling: "touch",
 					borderRadius: "6px",
 					outline: "none",
-<<<<<<< HEAD
+
 					width: "800px",
 					maxHeight: "600px",
-=======
-					width: "700px",
-					height: "500px",
->>>>>>> d7be4a0761570f99184675105ee73292fdf87171
+
+					
+
+					
+
 					padding: "0px !important",
 					margin: "0 auto",
 				},
