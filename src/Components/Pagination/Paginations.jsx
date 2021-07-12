@@ -1,23 +1,32 @@
-import React from 'react';
-import { Pagination } from 'semantic-ui-react';
+import React from "react";
+import { Pagination } from "semantic-ui-react";
 
-
-const Paginations=()=>{
-
-
-    return (
-        <div className="pagination-container">
-                 <Pagination 
-                    boundaryRange={1}
-                    activePage={1}
-                    size="tiny"
-                    siblingRange={1}
-                    totalPages={10}
-                    firstItem={null}
-                    lastItem={null}
-                   
-                 />
-        </div>
-    )
+function Paginate({ launches, activePage, setActivePage, launchCount }) {
+	const handlePageChange = (e, { activePage }) => {
+		setActivePage(activePage);
+	};
+	return (
+		<>
+			
+            {launchCount > 12 ? (
+				<div className="pagination-container">
+					<Pagination
+						boundaryRange={1}
+						size="tiny"
+						siblingRange={1}
+						totalPages={Math.ceil(launchCount / 12)}
+						onPageChange={handlePageChange}
+						activePage={activePage}
+						
+						
+					/>
+				</div>
+			) : (
+				""
+			)}
+			
+		</>
+	);
 }
-export default Paginations;
+
+export default Paginate;
