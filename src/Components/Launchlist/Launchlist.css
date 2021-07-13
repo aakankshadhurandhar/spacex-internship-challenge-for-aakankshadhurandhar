@@ -29,3 +29,14 @@ td {
 
 	
 }
+.table_container{
+    margin-top: 48px;
+    margin-left: 300px;
+    width: 1000px;
+    height: 676px;
+}
+
+.pagination-container {
+	margin-top: 10px  !important;
+    float: right;
+}

@@ -10,7 +10,7 @@ export const Filterbystatus=({setstatus})=>{
         {
             key:"Upcoming Launches",
             text:"Upcoming Launches",
-            value: "Upcoming Launches",
+            value: "upcoming",
         },
         {
             key:"Successful Launches",
@@ -35,7 +35,7 @@ return (
             selection
             defaultValue="All Launches"
             options={status}
-            placeholder="All launches"
+            
             onChange={handleChange}/>
     </div>
 )

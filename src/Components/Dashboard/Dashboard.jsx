@@ -1,31 +1,41 @@
 import React, { useState,useEffect } from 'react';
 import { GenerateSearchterm } from '../../utils';
-
+import axios from "axios";
 import { Filterbystatus } from '../Filterbystatus';
 import { LaunchList } from '../Launchlist';
+
+
+
 
 import './Dashboard.css'
 
 function Dashboard() {
 const[launches,setlaunches]=useState([])
-const[searchTerm,setSearchTerm]=useState("")
+const[searchTerm,setSearchTerm]=useState(`?limit=12`)
 const[status,setstatus]=useState("")
+const [activePage, setActivePage] = useState(1);
+const [launchCount, setLaunchCount] = useState("");
 
 const Getlaunchdetails = async () => {
-    const temp = await fetch(`https://api.spacexdata.com/v3/launches${searchTerm}`)
-        .then(res => res.json());
-
-        console.log(temp);
-        setlaunches(temp);
-}
+    try {
+        const res = await axios.get(
+            `https://api.spacexdata.com/v3/launches${searchTerm}`
+        );
+        console.log(searchTerm)
+        setLaunchCount(res.headers["spacex-api-count"]);
+        setlaunches(res.data);
+    } catch (error) {
+        console.log(error.data);
+    }
+};
 useEffect(() => {
     Getlaunchdetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [searchTerm]);
 
 useEffect(() => {
-   GenerateSearchterm({status,setSearchTerm})
-}, [status])
+   GenerateSearchterm({status,setSearchTerm,activePage,})
+}, [status,activePage])
     return (
 
         <>
@@ -37,8 +47,16 @@ useEffect(() => {
                     <Filterbystatus setstatus={setstatus}/>
                 </div>
                 <div className="table_container">
-                    <LaunchList launches={launches}/>
+                    <LaunchList launches={launches}
+                        launchCount={launchCount}
+                        setActivePage={setActivePage}
+                        activePage={activePage}
+                        
+                    
+                    />
+                    
                 </div>
+                
 
             </div>
 

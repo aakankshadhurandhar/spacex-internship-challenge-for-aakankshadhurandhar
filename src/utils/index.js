@@ -33,22 +33,21 @@ const Statuslabel=(launch_success)=>{
         )
 }
 
-const GenerateSearchterm=({status,setSearchTerm})=>{
+const GenerateSearchterm=({status,setSearchTerm,activePage})=>{
+    
+    
     
     if (status === true) {
-		
-        return setSearchTerm(`?launch_success=true`)
+		return setSearchTerm(`/?limit=12&offset=${(activePage - 1) * 12}&launch_success=true`)
 	} else if (status === false) {
-
-		return setSearchTerm(`?launch_success=false`);
-
-	} 
-    else if(status==="Upcoming Launches"){
-        return setSearchTerm("/upcoming")
-    }
-    else
-    return setSearchTerm("")
-    
+		return setSearchTerm(`/?launch_success=false`)
+	}
+    else if(status==='upcoming')
+    return setSearchTerm(`/upcoming`)
+	
+    else {
+		return setSearchTerm(`/?limit=12&offset=${(activePage - 1) * 12}/`);
+	}
     
     
 }

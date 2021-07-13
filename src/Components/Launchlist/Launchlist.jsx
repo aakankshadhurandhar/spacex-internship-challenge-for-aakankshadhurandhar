@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Table } from "semantic-ui-react"
+import {  Table } from "semantic-ui-react"
 import Model from '../Model/Model';
 import {FormattedDate,Statuslabel} from '../../utils/index'
 import './Launchlist.css'
-export const LaunchList = ({ launches }) => {
+
+import Paginate from '../Pagination/Paginations';
+export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
 	const [launchDetails, setLaunchDetails] = useState({});
 	const handleClose = () => setModalIsOpen(false);
-	// const handleShow = () => setModalIsOpen(true);
+	
 	const handleEvents = (launch) => {
 		setModalIsOpen(true);
 		setLaunchDetails(launch);
@@ -16,7 +18,7 @@ export const LaunchList = ({ launches }) => {
 
 	return (
 
-		<div>
+		<>
 
 			{ModalIsOpen ? (
 				<Model
@@ -25,8 +27,10 @@ export const LaunchList = ({ launches }) => {
 					launchDetails={launchDetails}
 				/>
 			) : (
-
-
+							""
+			)}
+				
+				<div className="table-container">
 				<Table singleLine>
 					<Table.Header>
 						<Table.Row>
@@ -63,7 +67,17 @@ export const LaunchList = ({ launches }) => {
 
 					</Table.Body>
 				</Table>
-			)}
-		</div>
+				
+				</div>
+				<div className="pagination-container">
+				<Paginate 
+				launches={launches}
+				activePage={activePage}
+				setActivePage={setActivePage}
+				launchCount={launchCount} />
+				</div>
+				
+			
+		</>
 	)
 }
