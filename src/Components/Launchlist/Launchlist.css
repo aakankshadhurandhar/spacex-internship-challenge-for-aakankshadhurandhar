@@ -35,3 +35,8 @@ td {
     width: 1000px;
     height: 676px;
 }
+
+.pagination-container {
+	margin-top: 10px  !important;
+    float: right;
+}

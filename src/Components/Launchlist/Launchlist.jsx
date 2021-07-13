@@ -69,11 +69,14 @@ export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) 
 				</Table>
 				
 				</div>
+				<div className="pagination-container">
 				<Paginate 
 				launches={launches}
 				activePage={activePage}
 				setActivePage={setActivePage}
 				launchCount={launchCount} />
+				</div>
+				
 			
 		</>
 	)
