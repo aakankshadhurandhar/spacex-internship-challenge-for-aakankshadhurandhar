@@ -5,7 +5,12 @@ import {FormattedDate,Statuslabel} from '../../utils/index'
 import './Launchlist.css'
 
 import Paginate from '../Pagination/Paginations';
-export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) => {
+export const LaunchList = ({ 
+	isLoading,
+	launches,
+	activePage, 
+	setActivePage, 
+	launchCount }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
 	const [launchDetails, setLaunchDetails] = useState({});
@@ -29,8 +34,8 @@ export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) 
 			) : (
 							""
 			)}
-				
-				<div className="table-container">
+
+<div className="table-container">
 				<Table singleLine>
 					<Table.Header>
 						<Table.Row>
@@ -45,6 +50,9 @@ export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) 
 
 						</Table.Row>
 					</Table.Header>
+					
+				{!isLoading ?(
+						
 					<Table.Body>
 						{launches.map((launch) => {
 							return (
@@ -66,6 +74,18 @@ export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) 
 						}
 
 					</Table.Body>
+				):
+				(
+					<>
+						
+
+						<img src="../loading.png" alt="loading" className="loading_img"/>
+      					
+    						
+					</>
+				
+				)
+	}
 				</Table>
 				
 				</div>
@@ -76,6 +96,14 @@ export const LaunchList = ({ launches,activePage, setActivePage, launchCount }) 
 				setActivePage={setActivePage}
 				launchCount={launchCount} />
 				</div>
+				
+				
+			
+				
+				
+
+
+			
 				
 			
 		</>
