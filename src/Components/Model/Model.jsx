@@ -1,8 +1,10 @@
 import React from "react";
 import ReactModal from "react-modal";
-
+import {FormattedDate,Statuslabel} from '../../utils/index'
+import "./Model.css"
 ReactModal.setAppElement("#root");
-function Model({ modalStatus, handleClose, launchDetails }) {
+function Model({ modalStatus, handleClose,launch }) {
+	console.log(launch)
 	return (
 		<ReactModal
 			style={{
@@ -16,7 +18,7 @@ function Model({ modalStatus, handleClose, launchDetails }) {
 				},
 				content: {
 					position: "absolute",
-					left: "50%",
+					left: "45%",
 					transform: "translateX(-50%)",
 					border: "1px solid #ccc",
 					background: "#fff",
@@ -25,28 +27,55 @@ function Model({ modalStatus, handleClose, launchDetails }) {
 					borderRadius: "6px",
 					outline: "none",
 
-					width: "800px",
-					maxHeight: "600px",
-
+					width: "544px",
+					maxHeight: "740px",
+					
 					
 
 					
 
 					padding: "0px !important",
-					margin: "0 auto",
+					
 				},
 			}}
 			isOpen={modalStatus}
 			onRequestClose={handleClose}
 		>
-			<div className="modal-container">
-				<div className="modal-header">
-					<p className="mission-heading">Flight</p>
-					<button onClick={handleClose}>X</button>
+			
+				<div className="model_container">
+					
+					<div className="model_header">
+					<img src={launch.links.mission_patch} alt="launchimg" className="launchimg"></img>
+					<div className="model_detail">
+					
+					<h3 className="mission_name">{launch.mission_name}</h3>
+					<h5 className="rocketname">{launch.rocket.rocket_name}</h5>
+					<div className="social-links">
+						<a href={launch.links.article_link}>
+							<img src="../nasa.png" alt="nasa.png" className="nasa-img"></img>
+						</a>
+						<a href={launch.links.wikipedia}>
+							<img src="../wikipedia.png" alt="wikipedia"></img>
+						</a>
+						<a href={launch.links.video_link}>
+							<img src="../youtube.png" alt="youtube"></img>
+						</a>
+
+					</div>
+					</div>
+					<div className="status">
+					{Statuslabel(launch.launch_success)}
+					
+					</div>
+					
+					
+					</div>
+					<div>
+						yf
+					</div>
+					
 				</div>
-				<h2>{launchDetails}</h2>
-				<p>Modal Body</p>
-			</div>
+				
 		</ReactModal>
 	);
 }
