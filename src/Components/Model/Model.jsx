@@ -70,10 +70,101 @@ function Model({ modalStatus, handleClose,launch }) {
 					
 					
 					</div>
-					<div>
-						yf
+					<div className="details">
+						<p>{launch.details}<a href={launch.links.wikipedia}>.Wikipedia</a></p>
 					</div>
-					
+					<div className="more_details">
+						<div className="details1">
+							<div className="heading">
+							 Flight Number
+							</div>
+							<div className="details2">
+								{launch.flight_number}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Mission Name
+							</div>
+							<div className="details2">
+								{launch.mission_name}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Rocket Type
+							</div>
+							<div className="details2">
+								{launch.rocket.rocket_type}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Rocket Name
+							</div>
+							<div className="details2">
+								{launch.rocket.rocket_name}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Manufacturer
+							</div>
+							<div className="details2">
+							{launch.rocket.second_stage.payloads[0].manufacturer}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Nationality
+							</div>
+							<div className="details2">
+							{launch.rocket.second_stage.payloads[0].nationality}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Launch Date
+							</div>
+							<div className="details2">
+							{FormattedDate(launch.launch_date_utc)}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Payload type
+							</div>
+							<div className="details2">
+							{launch.rocket.second_stage.payloads[0].payload_type}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Orbit
+							</div>
+							<div className="details2">
+							{launch.rocket.second_stage.payloads[0].orbit}
+							</div>
+						<hr></hr>
+						</div>
+						<div className="details1">
+							<div className="heading">
+							 Launch Site
+							</div>
+							<div className="details2">
+							{launch.launch_site.site_name}
+							</div>
+						
+						</div>
+					</div>
 				</div>
 				
 		</ReactModal>

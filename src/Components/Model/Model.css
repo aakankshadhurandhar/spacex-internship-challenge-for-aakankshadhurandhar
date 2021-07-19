@@ -44,3 +44,37 @@
     margin: 3px !important;
     
 }
+.details{
+    margin: 32px;
+    
+    
+
+}
+.details p{
+   font-size: 14px;
+   font-family: inter;
+   line-height: 24px;
+}
+.more_details{
+    display: flex !important;
+    flex-direction:column !important;
+    margin-top: 32px;
+}
+.details1 > div{
+    display: table-cell !important;
+    
+}
+.heading{
+    font-size: 18px;
+    padding-left: 32px;
+    padding-right: 129px;
+    
+    
+}
+.details2{
+    font-size: 18px;
+    
+}
+.details1 >hr{
+    color: grey;
+}
