@@ -17,6 +17,7 @@ export const LaunchList = ({
 	const handleClose = () => setModalIsOpen(false);
 	const[launch,setlaunches]=useState({})
 	
+	
 	const handleEvents = (launch) => {
 		setModalIsOpen(true);
 	
@@ -55,6 +56,8 @@ export const LaunchList = ({
 					</Table.Header>
 					
 				{!isLoading ?(
+
+
 						
 					<Table.Body>
 						{launches.map((launch) => {
