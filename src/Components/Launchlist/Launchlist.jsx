@@ -13,12 +13,15 @@ export const LaunchList = ({
 	launchCount }) => {
 	console.log(launches)
 	const [ModalIsOpen, setModalIsOpen] = useState(false);
-	const [launchDetails, setLaunchDetails] = useState({});
+	
 	const handleClose = () => setModalIsOpen(false);
+	const[launch,setlaunches]=useState({})
+	
 	
 	const handleEvents = (launch) => {
 		setModalIsOpen(true);
-		setLaunchDetails(launch);
+	
+		setlaunches(launch)
 	};
 
 	return (
@@ -29,7 +32,8 @@ export const LaunchList = ({
 				<Model
 					modalStatus={ModalIsOpen}
 					handleClose={handleClose}
-					launchDetails={launchDetails}
+					
+					launch={launch}
 				/>
 			) : (
 							""
@@ -52,11 +56,15 @@ export const LaunchList = ({
 					</Table.Header>
 					
 				{!isLoading ?(
+
+
 						
 					<Table.Body>
 						{launches.map((launch) => {
 							return (
-								<Table.Row onClick={() => handleEvents("Flight")} >
+								<Table.Row key={launch.flight_number}
+								onClick={()=>handleEvents(launch)}
+								 >
 									<Table.Cell>{launch.flight_number}</Table.Cell>
 									<Table.Cell>{FormattedDate(launch.launch_date_utc)}</Table.Cell>
 									<Table.Cell>{launch.launch_site.site_name}</Table.Cell>

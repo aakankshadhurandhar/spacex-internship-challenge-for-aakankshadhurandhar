@@ -1,0 +1,80 @@
+.model_container{
+    display: flex !important;
+    flex-direction: column !important;
+    
+   
+}
+.model_header{
+    display: flex !important;
+    flex-direction: row !important;
+}
+.launchimg{
+    height: 72px;
+    width: 72px;
+    margin-left: 32px;
+    margin-top: 32px;
+}
+
+.mission_name{
+    margin-top: 32px !important;
+    margin-left: 18px !important;
+    height: 20px !important;
+}
+.rocketname{
+    margin-top: 1px !important;
+    margin-inline-start: 18px   !important;
+    color: #374151;
+    height: 7px !important;
+
+}
+.status{
+    margin-left: 18px !important;
+    margin-top: 32px !important;
+    
+}
+.social-links{
+    height: 10px !important;
+    display: flex !important;
+    flex-direction: row;
+    margin-left: 18px !important;
+}
+.social-links img{
+    height: 15px !important;
+    width: 15px !important;
+    margin: 3px !important;
+    
+}
+.details{
+    margin: 32px;
+    
+    
+
+}
+.details p{
+   font-size: 14px;
+   font-family: inter;
+   line-height: 24px;
+}
+.more_details{
+    display: flex !important;
+    flex-direction:column !important;
+    margin-top: 32px;
+}
+.details1 > div{
+    display: table-cell !important;
+    
+}
+.heading{
+    font-size: 18px;
+    padding-left: 32px;
+    padding-right: 129px;
+    
+    
+}
+.details2{
+    font-size: 18px;
+    
+}
+.details1 >hr{
+    color: grey;
+}
