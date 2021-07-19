@@ -1,0 +1,18 @@
+.header_container {
+  height: 72px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo_container {
+  width: 86%;
+
+  text-align: center;
+}
+.logo_container img {
+  width: 19%;
+  height: 32px;
+}
